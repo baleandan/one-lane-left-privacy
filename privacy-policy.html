@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy Policy for One Lane Left by Kinetic Works.">
+  <meta name="description" content="Privacy Policy for One Lane Left by Dan-Mihai Balean.">
   <title>Privacy Policy — One Lane Left</title>
   <style>
     :root {
@@ -129,17 +129,17 @@
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <p class="eyebrow">Kinetic Works</p>
+      <p class="eyebrow">Dan-Mihai Balean</p>
       <h1>Privacy Policy — One Lane Left</h1>
-      <p class="effective-date"><strong>Effective date:</strong> 3 September 2026</p>
+      <p class="effective-date"><strong>Effective date:</strong> 15 September 2026</p>
     </div>
   </header>
 
   <main>
     <section>
       <h2>1. Introduction</h2>
-      <p>One Lane Left is published by Kinetic Works ("Kinetic Works", "we", "us", or "our"). This Privacy Policy explains how information is processed when you use One Lane Left on Android.</p>
-      <p>One Lane Left is a game. We do not provide player accounts or require you to log in to play. The game saves some game and settings information on your device. Some online services may be used for analytics, advertising, or purchases when those features are enabled in a release.</p>
+      <p>One Lane Left is published by Dan-Mihai Balean ("we", "us", or "our"). This Privacy Policy explains how information is processed when you use One Lane Left on Android under package <code>com.baleandanmihai.onelaneleft</code>.</p>
+      <p>One Lane Left is a game. We do not provide player accounts or require you to log in to play. The game saves some game and settings information on your device. Online services may process information for consent management, analytics, advertising, or purchases when the relevant feature is used or enabled.</p>
     </section>
 
     <section>
@@ -149,109 +149,133 @@
       <ul>
         <li>game progress such as high score, virtual currency total, and daily-mission state;</li>
         <li>game settings, including sound, music, haptics, graphics, camera-motion, and usage-analytics choices;</li>
-        <li>a local flag recording a confirmed Remove Ads entitlement; and</li>
-        <li>a locally generated random installation identifier used by the daily-mission save system. The audited project does not send this identifier to Kinetic Works.</li>
+        <li>a local flag recording a confirmed Remove Ads entitlement;</li>
+        <li>local records used to prevent the same validated purchase from being delivered twice; and</li>
+        <li>a locally generated random installation identifier used by the daily-mission save system. The game does not submit this daily-mission identifier as a custom analytics field.</li>
       </ul>
-      <p>This information is used to operate the game, restore local gameplay state, and apply your settings. It is not an account profile and does not contain a player name, email address, contacts, or payment-card information.</p>
-      <p>The audited project does not request precise device location or access contacts, photos/media, health data, or direct payment-card credentials. Advertising providers may still infer approximate location from IP address when advertising is enabled, as described below.</p>
+      <p>This information is used to operate the game, restore local gameplay state, apply your settings, and protect purchase fulfillment. It is not a player account and does not contain a player name, email address, contacts, or payment-card information. Third-party SDKs may use their own installation or device identifiers as described below; those are separate from the game's local daily-mission identifier.</p>
+      <p>The game does not request precise device location or access contacts, photos or videos, audio files, health or fitness data, calendar data, messages, or direct payment-card credentials. Service providers may still infer approximate location from an IP address.</p>
 
       <h3>Usage analytics</h3>
-      <p>The game includes Unity Analytics. The game initializes Unity Services and records usage analytics only when you have explicitly enabled Usage Analytics through the in-game analytics choice or Settings control.</p>
-      <p>When enabled, the project is designed to send game and technical event data such as app readiness, app foreground/background state, screen views, button actions, run number, run duration, distance, score, virtual cash, gameplay outcome, selected graphics tier, and performance measurements. These events include app version/build information and are sent to Unity Technologies through Unity Analytics.</p>
-      <p>The project contains a bounded crash-context metadata writer for technical game state. The current audited project has Unity's Crash Report API disabled and does not include a separate Cloud Diagnostics package. If crash reporting is enabled in a future release, Unity or the relevant diagnostics provider may process crash and device information under its own privacy notice.</p>
+      <p>The game includes Unity Analytics. The game initializes Unity Services for Analytics and submits Analytics data only if you explicitly grant the separate Usage Analytics choice. If Usage Analytics is declined or remains unset, project analytics submission remains off.</p>
+      <p>When enabled, the game submits custom gameplay and technical events such as app readiness, app foreground/background state, screen views, button actions, run number, run duration, distance, score, virtual Cash, gameplay outcome, selected graphics tier, and performance measurements. These events include app version and build information. The game does not intentionally place your name, email address, contacts, precise location, raw store receipt, payment-card information, or raw purchase token into its custom analytics events.</p>
+      <p>Unity Analytics may also automatically process service data such as IP address, an installation-specific identifier, a service user identifier that defaults to the installation identifier, device and app information, diagnostics, performance information, and approximate location derived from IP address. This information is processed by Unity Technologies according to its applicable terms and privacy notice.</p>
+      <p>The project contains a bounded local crash-context metadata writer for technical game state. Unity's built-in Developer Data Diagnostics is enabled at project level and may transmit essential crash logs, exception and diagnostic information, other app-performance data, configuration metadata, and a unique installation-specific identifier for stability and service-integrity purposes. This diagnostic collection is managed at the project or build level, not by the Usage Analytics choice or UnityConsent. The legacy Unity Cloud Diagnostics service is not enabled.</p>
+      <p>The current Unity Developer Data project configuration is limited to the Essential Data collection tier and use by the Unity products and services used for this project. Additional Recommended Data is disabled. No Google Analytics or Firebase link, or additional Unity product access, is enabled.</p>
     </section>
 
     <section>
       <h2>3. Advertising and Advertising Identifiers</h2>
-      <p>The project includes Unity LevelPlay mediation, ironSource Ads and Unity Ads mediation components, and the Google Mobile Ads/AdMob adapter configured for Partner Bidding. The current audited configuration has live ads disabled. It also contains development-only LevelPlay testing controls; those controls are not included in normal Release builds.</p>
-      <p>If an ad-supported release is enabled, advertising SDKs and their demand partners may process technical and advertising-related information. This can include an advertising identifier, device and network information, IP address, app and ad interaction data, approximate location inferred from IP address, ad-performance data, and consent signals. This information may be used to deliver, measure, limit, secure, and personalize ads where permitted by your choices and applicable requirements.</p>
-      <p>Advertising identifiers and the exact data practices of advertising partners are controlled by the applicable SDKs and their privacy notices. Kinetic Works does not receive the advertising identifier as a game feature.</p>
+      <p>The Android project includes Unity LevelPlay mediation with ironSource bidding, Google bidding through the Google Mobile Ads/AdMob adapter, and the Unity Ads adapter. The game creates ads through LevelPlay; it does not create a separate direct AdMob ad placement.</p>
+      <p>When advertising is enabled and an ad request is permitted, these SDKs and the configured advertising partners may collect or share technical and advertising information. Depending on the provider and your choices, this can include an advertising identifier, other device or app identifiers, device and network information, IP address, approximate location inferred from IP address, app launch and ad interactions such as taps and video views, diagnostics, performance data, ad-delivery and measurement data, fraud-prevention signals, and consent or privacy-choice signals.</p>
+      <p>This information may be used to deliver, measure, limit, secure, and improve ads, prevent fraud, and personalize ads where permitted by your choices and applicable requirements. Dan-Mihai Balean does not use the advertising identifier as a first-party gameplay identifier.</p>
     </section>
 
     <section>
       <h2>4. Consent and Privacy Choices</h2>
-      <p>The game has a separate Usage Analytics choice in its first-run/settings experience. That choice controls project analytics submission; it is not an advertising-consent substitute.</p>
-      <p>For an ad-supported release, Kinetic Works intends to use Google User Messaging Platform (UMP) or another supported certified consent-management flow where required, including for applicable users in the EEA, UK, and Switzerland. The resulting consent or privacy choice must be provided to LevelPlay and AdMob before ads initialize, and users must be offered any required Privacy, cookie-settings, or privacy-options entry point.</p>
-      <p>The current codebase contains the production boundary for receiving an ad privacy state, but a Google UMP integration has not yet been confirmed in the audited project. Until that workflow is implemented and validated for a release, this policy does not state that a production advertising consent flow is active.</p>
+      <p>The game has a separate Usage Analytics choice in its first-run and Settings experience. That choice sets Unity's Developer Data <code>AnalyticsIntent</code> and controls project analytics submission. Unity IAP can read and include that intent in its service telemetry. The choice does not authorize advertising and does not replace the separate UMP advertising-privacy flow.</p>
+      <p>On Android, the game uses Google's User Messaging Platform (UMP) to manage advertising privacy choices. At each app launch, including while live ad requests are disabled, the game asks UMP to refresh the applicable consent status and determine whether a privacy message or privacy-options entry point is required. UMP may communicate with Google and store or update consent and privacy-choice signals for this purpose.</p>
+      <p>When UMP requires an initial form, the game asks UMP to load and show it. LevelPlay stays blocked until UMP reports that ads may be requested. If UMP requires an ongoing privacy-options entry point, the game exposes a Privacy Choices control in Settings so that the UMP form can be opened again. If an update fails, the game does not infer consent; it relies only on the status returned by UMP, including any valid status retained by UMP from an earlier session.</p>
+      <p>The privacy message shown and the choices available depend on your region, the applicable requirements, and the advertising partners configured for the game.</p>
     </section>
 
     <section>
       <h2>5. In-App Purchases</h2>
-      <p>The project includes Unity IAP support for Google Play purchases, including a potential non-consumable Remove Ads product. The current audited configuration has IAP disabled and no active Google Play product is confirmed.</p>
-      <p>If purchases are enabled, payment processing and purchase verification are handled by Google Play and Unity IAP. Kinetic Works does not collect or store payment-card numbers. The game may store a local entitlement flag so that a confirmed Remove Ads purchase can be recognized on the device.</p>
+      <p>The game uses Unity IAP 5.4 or later to offer Google Play purchases, including consumable virtual Cash packs and a non-consumable Remove Forced Ads product.</p>
+      <p>If purchases are activated, Google Play processes the payment and supplies purchase information to the app, and Unity IAP connects the game to Google Play Billing. Dan-Mihai Balean does not collect or store payment-card or bank-account numbers.</p>
+      <p>Unity states that IAP 5.4 and later processes personal data for the service. Depending on the available services and purchase flow, this may include a Unity installation identifier, an Authentication Player ID if Authentication is present, device information, session identifiers, country or approximate location, app and SDK information, product and purchase history, transaction identifiers or store payload data, diagnostics, performance information, and device or other identifiers. Unity's service-level Google Play disclosure also lists an end-user email address as required ephemeral app-functionality data. The game does not request an email address, include a player-account or Unity Authentication flow, or configure a direct-to-consumer payment provider.</p>
+      <p>Unity IAP 5.4 or later does not provide its own player-consent interface. The game sends the Usage Analytics decision to Unity as the Developer Data <code>AnalyticsIntent</code>. Unity IAP reads that signal and, when analytics is enabled, can include an optional Analytics identifier. Denying or leaving Usage Analytics unset does not stop the essential transaction and service data needed to provide purchases.</p>
+      <p>Advertising privacy choices remain managed separately through UMP. The game does not infer a Unity Developer Data advertising-consent signal from UMP's aggregate <code>CanRequestAds</code> result. In the current integration, Unity IAP therefore does not access optional advertising or linked Google Analytics/Firebase identifiers that its SDK gates on an explicitly granted advertising intent.</p>
+      <p>For purchase fulfillment, the game stores a local entitlement or Cash delivery record together with a one-way hash of the validated purchase token to prevent repeated local delivery. Eligible Remove Forced Ads purchases can be restored with the same Google Play account. Consumed Cash purchases do not reconstruct a lost local balance or progression state after app data is cleared or the game is reinstalled.</p>
     </section>
 
     <section>
       <h2>6. How Information Is Used</h2>
-      <p>Depending on which features are enabled in a release, information is used to operate the game and retain local settings and progress; understand game usage and technical performance when Usage Analytics is enabled; provide, measure, secure, and improve advertising when advertising is enabled; process and restore eligible in-app purchases when purchases are enabled; and meet applicable legal, security, and fraud-prevention obligations.</p>
+      <p>Depending on the services enabled and used, information is processed to operate the game and retain local settings and progress; remember and apply privacy choices; understand game usage and technical performance when Usage Analytics is enabled; deliver, measure, secure, and improve advertising when advertising is enabled and permitted; process, validate, fulfill, and restore eligible in-app purchases when purchases are enabled; and meet applicable legal, security, and fraud-prevention obligations.</p>
     </section>
 
     <section>
-      <h2>7. Data Sharing</h2>
-      <p>Kinetic Works does not operate an account system or a Kinetic Works cloud-save service in the audited project. We may share or make information available to service providers only as needed for enabled services:</p>
+      <h2>7. Legal Bases for EEA/UK Users</h2>
+      <p>If you are in the European Economic Area or the United Kingdom, we rely on the following legal bases where applicable to the processing described in this policy:</p>
       <ul>
-        <li><strong>Unity Technologies</strong> for Unity Analytics, Unity LevelPlay, Unity Ads, and Unity IAP;</li>
-        <li><strong>Google</strong> for Google Play purchase processing and, when ads are enabled, Google Mobile Ads/AdMob; and</li>
-        <li>advertising demand partners available through LevelPlay mediation when ads are enabled.</li>
+        <li><strong>Consent:</strong> for Usage Analytics, and for advertising-related storage, access, personalization, or other processing where applicable law requires consent. You may withdraw consent through the relevant in-game privacy control where available. Withdrawal does not affect the lawfulness of processing performed before consent was withdrawn.</li>
+        <li><strong>Performance of a contract or steps taken at your request:</strong> to provide the core game functionality you request and to initiate, validate, fulfill, or restore a purchase you choose to make.</li>
+        <li><strong>Legitimate interests:</strong> to protect the security and integrity of the game and services, prevent fraud and duplicate fulfillment, investigate abuse, maintain service reliability, and perform necessary technical diagnostics, where those interests are not overridden by your data-protection rights and interests. We do not rely on legitimate interests instead of consent for processing that legally requires consent.</li>
+        <li><strong>Legal obligations:</strong> when processing is necessary to comply with applicable law, regulatory requirements, lawful requests, accounting requirements, or consumer-protection obligations.</li>
       </ul>
-      <p>Those providers may process information under their own policies and may use subprocessors or operate internationally. We do not directly sell personal information for money. Whether a particular disclosure is treated as a "sale" or "sharing" under a specific law depends on the facts, enabled partners, and applicable law.</p>
+      <p>Unity, Google, or an advertising provider may act as an independent controller for some processing and determine its own legal bases. Refer to the relevant provider's privacy notice for that processing.</p>
     </section>
 
     <section>
-      <h2>8. Data Retention and Deletion</h2>
-      <p>App-local game and settings data normally remains on your device until it is changed, reset by available in-game controls, cleared through Android settings, or removed when the app is uninstalled. Uninstalling normally removes the app's local data, but Android backup, device-management, or platform behavior can affect what remains outside the app.</p>
-      <p>Kinetic Works does not provide account deletion because the audited game has no account system. Information processed by Unity, Google, or advertising partners is retained according to their applicable policies and operational requirements.</p>
-      <p>For a privacy inquiry or deletion request relating to Kinetic Works-controlled information, contact us at kineticworks.games@gmail.com. Please do not send payment-card details in a request.</p>
+      <h2>8. Data Sharing and Service Providers</h2>
+      <p>Dan-Mihai Balean does not operate a player-account system or a first-party cloud-save service for the game. Information may be made available to the following service providers when the corresponding service is used:</p>
+      <ul>
+        <li><strong>Unity Technologies</strong>, for Developer Data Diagnostics, Unity Analytics, Unity LevelPlay/ironSource, Unity Ads, and Unity IAP;</li>
+        <li><strong>Google</strong>, for UMP consent and privacy messaging, Google Mobile Ads/AdMob, Google Play Billing, purchase processing, and purchase restoration; and</li>
+        <li>the advertising partners configured through LevelPlay, currently Google bidding/AdMob, Unity Ads, and ironSource bidding, when advertising is enabled.</li>
+      </ul>
+      <p>These providers may process information under their own policies, use subprocessors, or process information in other countries. We do not directly sell personal information for money. Whether a disclosure is legally treated as a "sale" or "sharing" depends on the enabled provider, applicable law, and the user's privacy choices.</p>
     </section>
 
     <section>
-      <h2>9. Children's Privacy</h2>
-      <p>One Lane Left is not intended as a child-directed product. We do not knowingly collect personal information directly from children through a player account, because the game has no account or login system. Advertising, analytics, and purchase providers may have their own rules for minors and child-directed apps. If you believe a child has provided personal information to Kinetic Works directly, contact kineticworks.games@gmail.com.</p>
+      <h2>9. Data Retention and Deletion</h2>
+      <p>App-local game and settings information normally remains on your device until it is changed, reset by an available in-game control, cleared through Android settings, or removed when the app is uninstalled. Android backup, device-management, or platform behavior may affect information stored outside the app's local storage.</p>
+      <p>The game has no player account, so it has no in-app account-deletion flow. Unity, Google, and advertising providers retain information according to their applicable policies and service requirements. Requests involving Unity Diagnostics data associated with an installation-specific identifier are handled through Unity's Dashboard or Support process. Unity states that its IAP 5.4 service has no native self-service access or deletion feature; requests involving Unity IAP data are handled manually through the process described in Unity's IAP privacy documentation.</p>
+      <p>For a privacy inquiry or request relating to developer-controlled information, contact balean.danmihai.dev@gmail.com. Please do not send payment-card details or raw store receipts unless specifically required through a secure support process. Requests concerning provider-controlled information may also need to be directed to Unity, Google, or the relevant advertising provider.</p>
     </section>
 
     <section>
-      <h2>10. Security</h2>
+      <h2>10. Children's Privacy</h2>
+      <p>One Lane Left is not directed to children. The game does not provide a player account or knowingly ask children to submit a name, email address, or other account information to Dan-Mihai Balean. Advertising, analytics, consent, and purchase providers have additional requirements for child-directed apps and minors. If you believe a child has provided personal information directly to the developer, contact balean.danmihai.dev@gmail.com.</p>
+    </section>
+
+    <section>
+      <h2>11. Security</h2>
       <p>We use reasonable measures appropriate to the services we operate, but no method of storage or transmission is completely secure. Third-party providers apply their own security practices to information they process.</p>
     </section>
 
     <section>
-      <h2>11. International Processing</h2>
+      <h2>12. International Processing</h2>
       <p>Unity, Google, and advertising partners may process information in countries other than the country where you live. Their privacy notices describe their processing and transfer practices.</p>
     </section>
 
     <section>
-      <h2>12. Your Privacy Rights</h2>
-      <p>Depending on where you live, you may have rights to request information about personal data, correction, deletion, restriction, objection, portability, or to withdraw consent where consent is used. You may also be able to change advertising choices through the consent/privacy controls made available in the app or through device/platform settings.</p>
-      <p>To make a request concerning Kinetic Works-controlled information, contact kineticworks.games@gmail.com. We may need information necessary to verify and respond to a request. Requests concerning Unity, Google, or advertising-partner data may also need to be directed to the relevant provider.</p>
+      <h2>13. Your Privacy Rights</h2>
+      <p>Depending on where you live, you may have rights to request access to personal data, correction, deletion, restriction, objection, portability, or withdrawal of consent where consent is used. Withdrawal of consent does not affect the lawfulness of processing based on consent before its withdrawal. You may also be able to change Usage Analytics or advertising choices through the relevant privacy controls made available in the app or through device and platform settings.</p>
+      <p>To make a request concerning developer-controlled information, contact balean.danmihai.dev@gmail.com. We may need information reasonably necessary to verify and respond to a request. Requests concerning information controlled by Unity, Google, or an advertising provider may also need to be directed to that provider.</p>
+      <p>You also have the right to lodge a complaint with a competent data-protection supervisory authority. In Romania, the supervisory authority is the <strong>National Supervisory Authority for Personal Data Processing (ANSPDCP)</strong> (<a href="https://www.dataprotection.ro/">www.dataprotection.ro</a>). Where applicable, you may instead contact the competent supervisory authority in the EEA country of your habitual residence, place of work, or the place of the alleged infringement.</p>
     </section>
 
     <section>
-      <h2>13. Third-Party Privacy Notices</h2>
+      <h2>14. Third-Party Privacy Notices</h2>
       <ul>
-        <li><a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a> — Unity Analytics, Unity LevelPlay, Unity Ads, and Unity IAP.</li>
-        <li><a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a> — Google Play and Google Mobile Ads/AdMob.</li>
+        <li><a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a> — Unity Developer Data Diagnostics, Unity Analytics, Unity LevelPlay, Unity Ads, and Unity IAP.</li>
+        <li><a href="https://docs.unity.com/en-us/iap/privacy-and-consent">Unity IAP Privacy and Consent</a> — Unity IAP 5.4 data handling and request information.</li>
+        <li><a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a> — Google Play, UMP, and Google Mobile Ads/AdMob.</li>
+        <li><a href="https://developers.google.com/admob/unity/privacy">Google UMP for Unity</a> — advertising privacy-message behavior.</li>
         <li><a href="https://docs.unity.com/en-us/grow/levelplay/platform/legal-resources">Unity LevelPlay Legal Resources</a> — LevelPlay privacy and regional compliance materials.</li>
       </ul>
-      <p>Third-party policies may change. This list should be reviewed when providers, adapters, or release configuration change.</p>
+      <p>Third-party policies may change. This policy may be updated if providers, adapters, or release configuration change.</p>
     </section>
 
     <section>
-      <h2>14. Changes to This Privacy Policy</h2>
+      <h2>15. Changes to This Privacy Policy</h2>
       <p>We may update this Privacy Policy when the game, its data practices, or applicable requirements change. The updated version will show a revised effective date.</p>
     </section>
 
     <section>
-      <h2>15. Contact</h2>
+      <h2>16. Contact</h2>
       <div class="contact-card">
-        <strong>Developer/brand:</strong> Kinetic Works<br>
+        <strong>Developer:</strong> Dan-Mihai Balean<br>
         <strong>App:</strong> One Lane Left<br>
-        <strong>Privacy contact:</strong> kineticworks.games@gmail.com
+        <strong>Android package:</strong> com.baleandanmihai.onelaneleft<br>
+        <strong>Privacy contact:</strong> balean.danmihai.dev@gmail.com
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="footer-inner">One Lane Left — Kinetic Works</div>
+    <div class="footer-inner">One Lane Left — Dan-Mihai Balean</div>
   </footer>
 </body>
 </html>
