@@ -154,7 +154,7 @@
         <li>a locally generated random installation identifier used by the daily-mission save system. The game does not submit this daily-mission identifier as a custom analytics field.</li>
       </ul>
       <p>This information is used to operate the game, restore local gameplay state, apply your settings, and protect purchase fulfillment. It is not a player account and does not contain a player name, email address, contacts, or payment-card information. Third-party SDKs may use their own installation or device identifiers as described below; those are separate from the game's local daily-mission identifier.</p>
-      <p>The game does not request precise device location or access contacts, photos or videos, audio files, health or fitness data, calendar data, messages, or direct payment-card credentials. Service providers may still infer approximate location from an IP address.</p>
+      <p>One Lane Left does not request Android precise-location, approximate/coarse-location, or background-location permissions and does not call Android device-location APIs. It also does not request access to contacts, photos or videos, audio files, health or fitness data, calendar data, messages, or direct payment-card credentials. Service providers may still infer approximate location, such as a country or general area, from an IP address.</p>
 
       <h3>Usage analytics</h3>
       <p>The game includes Unity Analytics. The game initializes Unity Services for Analytics and submits Analytics data only if you explicitly grant the separate Usage Analytics choice. If Usage Analytics is declined or remains unset, project analytics submission remains off.</p>
@@ -166,7 +166,8 @@
 
     <section>
       <h2>3. Advertising and Advertising Identifiers</h2>
-      <p>The Android project includes Unity LevelPlay mediation with ironSource bidding, Google bidding through the Google Mobile Ads/AdMob adapter, and the Unity Ads adapter. The game creates ads through LevelPlay; it does not create a separate direct AdMob ad placement.</p>
+      <p>The direct LevelPlay mediation and bidding providers for the initial release are Google bidding/AdMob and ironSource bidding. The game creates ads through LevelPlay; it does not create a separate direct AdMob ad placement. Unity Ads is not connected to either mediation group and is not configured to request or deliver ads for this release.</p>
+      <p>The supported Unity LevelPlay package nevertheless bundles and manages the Unity Ads SDK and adapter. On Android, that bundled SDK registers a process-start component that performs limited SDK and networking-provider setup even when Unity Ads is not configured as a mediation source. One Lane Left does not call the Unity Ads initialization, load, or show APIs. Unity Ads therefore remains disclosed as a bundled technical component, but it is not an active direct advertising provider for this release.</p>
       <p>When advertising is enabled and an ad request is permitted, these SDKs and the configured advertising partners may collect or share technical and advertising information. Depending on the provider and your choices, this can include an advertising identifier, other device or app identifiers, device and network information, IP address, approximate location inferred from IP address, app launch and ad interactions such as taps and video views, diagnostics, performance data, ad-delivery and measurement data, fraud-prevention signals, and consent or privacy-choice signals.</p>
       <p>This information may be used to deliver, measure, limit, secure, and improve ads, prevent fraud, and personalize ads where permitted by your choices and applicable requirements. Dan-Mihai Balean does not use the advertising identifier as a first-party gameplay identifier.</p>
     </section>
@@ -176,7 +177,8 @@
       <p>The game has a separate Usage Analytics choice in its first-run and Settings experience. That choice sets Unity's Developer Data <code>AnalyticsIntent</code> and controls project analytics submission. Unity IAP can read and include that intent in its service telemetry. The choice does not authorize advertising and does not replace the separate UMP advertising-privacy flow.</p>
       <p>On Android, the game uses Google's User Messaging Platform (UMP) to manage advertising privacy choices. At each app launch, including while live ad requests are disabled, the game asks UMP to refresh the applicable consent status and determine whether a privacy message or privacy-options entry point is required. UMP may communicate with Google and store or update consent and privacy-choice signals for this purpose.</p>
       <p>When UMP requires an initial form, the game asks UMP to load and show it. LevelPlay stays blocked until UMP reports that ads may be requested. If UMP requires an ongoing privacy-options entry point, the game exposes a Privacy Choices control in Settings so that the UMP form can be opened again. If an update fails, the game does not infer consent; it relies only on the status returned by UMP, including any valid status retained by UMP from an earlier session.</p>
-      <p>The privacy message shown and the choices available depend on your region, the applicable requirements, and the advertising partners configured for the game.</p>
+      <p>The privacy message shown and the choices available depend on your region, the applicable requirements, and the advertising partners configured for the game. Google's UMP consent and privacy-options interface may list additional Google-certified advertising technology providers, Authorized Buyers, Open Bidding partners, or other Google demand sources that may be eligible to process data through Google's advertising ecosystem. The current partner list and each partner's disclosures are presented in that interface when applicable. Inclusion in that list describes eligibility or capability and does not mean that every listed provider receives data for every ad request.</p>
+      <p>Some UMP partner disclosures use generic language about precise geolocation because a listed provider has registered that capability. One Lane Left itself does not request Android location permission, obtain GPS-level location, or intentionally send precise location to an advertising SDK. This generic partner capability is not a statement that the game actually collects precise location.</p>
     </section>
 
     <section>
@@ -208,11 +210,12 @@
 
     <section>
       <h2>8. Data Sharing and Service Providers</h2>
-      <p>Dan-Mihai Balean does not operate a player-account system or a first-party cloud-save service for the game. Information may be made available to the following service providers when the corresponding service is used:</p>
+      <p>Dan-Mihai Balean does not operate a player-account system or a first-party cloud-save service for the game. Information may be made available to the following service providers as described in this policy:</p>
       <ul>
-        <li><strong>Unity Technologies</strong>, for Developer Data Diagnostics, Unity Analytics, Unity LevelPlay/ironSource, Unity Ads, and Unity IAP;</li>
+        <li><strong>Unity Technologies</strong>, for Developer Data Diagnostics, Unity Analytics, Unity LevelPlay/ironSource, Unity IAP, and the bundled Unity Ads technical component described above;</li>
         <li><strong>Google</strong>, for UMP consent and privacy messaging, Google Mobile Ads/AdMob, Google Play Billing, purchase processing, and purchase restoration; and</li>
-        <li>the advertising partners configured through LevelPlay, currently Google bidding/AdMob, Unity Ads, and ironSource bidding, when advertising is enabled.</li>
+        <li>the advertising sources directly connected in the new app's current LevelPlay groups: Google bidding/AdMob and ironSource bidding, when advertising is enabled; and</li>
+        <li>additional Google-certified advertising technology providers, Authorized Buyers, Open Bidding partners, or Google demand sources disclosed through UMP, when eligible, selected, and permitted by the user's choices.</li>
       </ul>
       <p>These providers may process information under their own policies, use subprocessors, or process information in other countries. We do not directly sell personal information for money. Whether a disclosure is legally treated as a "sale" or "sharing" depends on the enabled provider, applicable law, and the user's privacy choices.</p>
     </section>
