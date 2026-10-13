@@ -131,14 +131,14 @@
     <div class="header-inner">
       <p class="eyebrow">Dan-Mihai Balean</p>
       <h1>Privacy Policy — One Lane Left</h1>
-      <p class="effective-date"><strong>Effective date:</strong> 15 September 2026</p>
+      <p class="effective-date"><strong>Effective date:</strong> 14 October 2026</p>
     </div>
   </header>
 
   <main>
     <section>
       <h2>1. Introduction</h2>
-      <p>One Lane Left is published by Dan-Mihai Balean ("we", "us", or "our"). This Privacy Policy explains how information is processed when you use One Lane Left on Android under package <code>com.baleandanmihai.onelaneleft</code>.</p>
+      <p>One Lane Left is published by Dan-Mihai Balean ("we", "us", or "our"). This Privacy Policy explains how information is processed when you use One Lane Left on Android under package identifier <code>com.baleandanmihai.onelaneleft</code> or iOS under bundle identifier <code>com.baleandanmihai.onelaneleft.ios</code>. iOS availability and features depend on the released build.</p>
       <p>One Lane Left is a game. We do not provide player accounts or require you to log in to play. The game saves some game and settings information on your device. Online services may process information for consent management, analytics, advertising, or purchases when the relevant feature is used or enabled.</p>
     </section>
 
@@ -166,29 +166,30 @@
 
     <section>
       <h2>3. Advertising and Advertising Identifiers</h2>
-      <p>The direct LevelPlay mediation and bidding providers for the initial release are Google bidding/AdMob and ironSource bidding. The game creates ads through LevelPlay; it does not create a separate direct AdMob ad placement. Unity Ads is not connected to either mediation group and is not configured to request or deliver ads for this release.</p>
+      <p>The current advertising integration uses Google Mobile Ads/AdMob directly for optional rewarded ads and interstitial ads. Android and iOS use separate AdMob app and ad-unit identifiers. The game no longer calls LevelPlay to initialize, load, or show ads; the installed LevelPlay and mediation components are retained technical dependencies, not a fallback advertising path. The game does not call Unity Ads to request or display ads.</p>
       <p>The supported Unity LevelPlay package nevertheless bundles and manages the Unity Ads SDK and adapter. On Android, that bundled SDK registers a process-start component that performs limited SDK and networking-provider setup even when Unity Ads is not configured as a mediation source. One Lane Left does not call the Unity Ads initialization, load, or show APIs. Unity Ads therefore remains disclosed as a bundled technical component, but it is not an active direct advertising provider for this release.</p>
       <p>When advertising is enabled and an ad request is permitted, these SDKs and the configured advertising partners may collect or share technical and advertising information. Depending on the provider and your choices, this can include an advertising identifier, other device or app identifiers, device and network information, IP address, approximate location inferred from IP address, app launch and ad interactions such as taps and video views, diagnostics, performance data, ad-delivery and measurement data, fraud-prevention signals, and consent or privacy-choice signals.</p>
       <p>This information may be used to deliver, measure, limit, secure, and improve ads, prevent fraud, and personalize ads where permitted by your choices and applicable requirements. Dan-Mihai Balean does not use the advertising identifier as a first-party gameplay identifier.</p>
+      <p>On iOS, when applicable, Google UMP may present an explanation followed by Apple's App Tracking Transparency (ATT) permission request. ATT controls access to the iOS advertising identifier and permission for tracking covered by Apple's rules. Declining ATT does not prevent core gameplay or automatically prevent all ads; eligible ads can be requested without the IDFA, subject to the separate advertising privacy choices. You can change the ATT permission in iOS Settings. The game does not grant a gameplay reward for allowing tracking.</p>
     </section>
 
     <section>
       <h2>4. Consent and Privacy Choices</h2>
       <p>The game has a separate Usage Analytics choice in its first-run and Settings experience. That choice sets Unity's Developer Data <code>AnalyticsIntent</code> and controls project analytics submission. Unity IAP can read and include that intent in its service telemetry. The choice does not authorize advertising and does not replace the separate UMP advertising-privacy flow.</p>
-      <p>On Android, the game uses Google's User Messaging Platform (UMP) to manage advertising privacy choices. At each app launch, including while live ad requests are disabled, the game asks UMP to refresh the applicable consent status and determine whether a privacy message or privacy-options entry point is required. UMP may communicate with Google and store or update consent and privacy-choice signals for this purpose.</p>
-      <p>When UMP requires an initial form, the game asks UMP to load and show it. LevelPlay stays blocked until UMP reports that ads may be requested. If UMP requires an ongoing privacy-options entry point, the game exposes a Privacy Choices control in Settings so that the UMP form can be opened again. If an update fails, the game does not infer consent; it relies only on the status returned by UMP, including any valid status retained by UMP from an earlier session.</p>
+      <p>The game uses Google's User Messaging Platform (UMP) to manage advertising privacy choices on Android and in iOS builds with advertising enabled. At each eligible app launch, the game asks UMP to refresh the applicable consent status and determine whether a privacy message or privacy-options entry point is required. UMP may communicate with Google and store or update consent and privacy-choice signals for this purpose.</p>
+      <p>When UMP requires an initial form, the game asks UMP to load and show it. AdMob initialization and ad requests stay blocked until UMP reports that ads may be requested. If UMP requires an ongoing privacy-options entry point, the game exposes a Privacy Choices control in Settings so that the UMP form can be opened again. If an update fails, the game does not infer consent; it relies only on the status returned by UMP, including any valid status retained by UMP from an earlier session.</p>
       <p>The privacy message shown and the choices available depend on your region, the applicable requirements, and the advertising partners configured for the game. Google's UMP consent and privacy-options interface may list additional Google-certified advertising technology providers, Authorized Buyers, Open Bidding partners, or other Google demand sources that may be eligible to process data through Google's advertising ecosystem. The current partner list and each partner's disclosures are presented in that interface when applicable. Inclusion in that list describes eligibility or capability and does not mean that every listed provider receives data for every ad request.</p>
       <p>Some UMP partner disclosures use generic language about precise geolocation because a listed provider has registered that capability. One Lane Left itself does not request Android location permission, obtain GPS-level location, or intentionally send precise location to an advertising SDK. This generic partner capability is not a statement that the game actually collects precise location.</p>
     </section>
 
     <section>
       <h2>5. In-App Purchases</h2>
-      <p>The game uses Unity IAP 5.4 or later to offer Google Play purchases, including consumable virtual Cash packs and a non-consumable Remove Forced Ads product.</p>
-      <p>If purchases are activated, Google Play processes the payment and supplies purchase information to the app, and Unity IAP connects the game to Google Play Billing. Dan-Mihai Balean does not collect or store payment-card or bank-account numbers.</p>
+      <p>When purchases are enabled, the game uses Unity IAP 5.4 or later to offer Google Play purchases on Android and Apple App Store purchases through StoreKit 2 on iOS. Products include consumable virtual Cash packs, guaranteed virtual-item bundles, and a non-consumable Remove Forced Ads product. Some beta builds may have purchases disabled.</p>
+      <p>When purchases are enabled, Google Play or Apple processes the payment and supplies purchase information to the app. Unity IAP connects the game to the corresponding store. On iOS, the game requires a transaction verified by StoreKit before granting a purchase. Dan-Mihai Balean does not collect or store payment-card or bank-account numbers.</p>
       <p>Unity states that IAP 5.4 and later processes personal data for the service. Depending on the available services and purchase flow, this may include a Unity installation identifier, an Authentication Player ID if Authentication is present, device information, session identifiers, country or approximate location, app and SDK information, product and purchase history, transaction identifiers or store payload data, diagnostics, performance information, and device or other identifiers. Unity's service-level Google Play disclosure also lists an end-user email address as required ephemeral app-functionality data. The game does not request an email address, include a player-account or Unity Authentication flow, or configure a direct-to-consumer payment provider.</p>
       <p>Unity IAP 5.4 or later does not provide its own player-consent interface. The game sends the Usage Analytics decision to Unity as the Developer Data <code>AnalyticsIntent</code>. Unity IAP reads that signal and, when analytics is enabled, can include an optional Analytics identifier. Denying or leaving Usage Analytics unset does not stop the essential transaction and service data needed to provide purchases.</p>
       <p>Advertising privacy choices remain managed separately through UMP. The game does not infer a Unity Developer Data advertising-consent signal from UMP's aggregate <code>CanRequestAds</code> result. In the current integration, Unity IAP therefore does not access optional advertising or linked Google Analytics/Firebase identifiers that its SDK gates on an explicitly granted advertising intent.</p>
-      <p>For purchase fulfillment, the game stores a local entitlement or Cash delivery record together with a one-way hash of the validated purchase token to prevent repeated local delivery. Eligible Remove Forced Ads purchases can be restored with the same Google Play account. Consumed Cash purchases do not reconstruct a lost local balance or progression state after app data is cleared or the game is reinstalled.</p>
+      <p>For purchase fulfillment, the game stores a local entitlement or Cash delivery record together with a one-way hash of the validated purchase token to prevent repeated local delivery. Eligible Remove Forced Ads purchases can be restored with the same account for the corresponding store. On iOS, a verified Apple revocation may deactivate Remove Forced Ads; the game does not treat a failed connection or a missing local entitlement as proof of revocation. Existing virtual Cash and other delivered items are retained by this entitlement update. Consumed Cash purchases do not reconstruct a lost local balance or progression state after app data is cleared or the game is reinstalled.</p>
     </section>
 
     <section>
@@ -205,7 +206,7 @@
         <li><strong>Legitimate interests:</strong> to protect the security and integrity of the game and services, prevent fraud and duplicate fulfillment, investigate abuse, maintain service reliability, and perform necessary technical diagnostics, where those interests are not overridden by your data-protection rights and interests. We do not rely on legitimate interests instead of consent for processing that legally requires consent.</li>
         <li><strong>Legal obligations:</strong> when processing is necessary to comply with applicable law, regulatory requirements, lawful requests, accounting requirements, or consumer-protection obligations.</li>
       </ul>
-      <p>Unity, Google, or an advertising provider may act as an independent controller for some processing and determine its own legal bases. Refer to the relevant provider's privacy notice for that processing.</p>
+      <p>Apple, Unity, Google, or an advertising provider may act as an independent controller for some processing and determine its own legal bases. Refer to the relevant provider's privacy notice for that processing.</p>
     </section>
 
     <section>
@@ -213,8 +214,9 @@
       <p>Dan-Mihai Balean does not operate a player-account system or a first-party cloud-save service for the game. Information may be made available to the following service providers as described in this policy:</p>
       <ul>
         <li><strong>Unity Technologies</strong>, for Developer Data Diagnostics, Unity Analytics, Unity LevelPlay/ironSource, Unity IAP, and the bundled Unity Ads technical component described above;</li>
-        <li><strong>Google</strong>, for UMP consent and privacy messaging, Google Mobile Ads/AdMob, Google Play Billing, purchase processing, and purchase restoration; and</li>
-        <li>the advertising sources directly connected in the new app's current LevelPlay groups: Google bidding/AdMob and ironSource bidding, when advertising is enabled; and</li>
+        <li><strong>Google</strong>, for UMP consent and privacy messaging, Google Mobile Ads/AdMob, and Google Play Billing on Android;</li>
+        <li><strong>Apple</strong>, for App Store payments and StoreKit purchase, refund, and eligible permanent-purchase restoration on iOS. Apple handles payment and Apple Account information; the game receives transaction information needed to verify and deliver purchases, without receiving payment-card credentials;</li>
+        <li>Google advertising demand sources used by the current direct AdMob integration, when advertising is enabled and permitted; and</li>
         <li>additional Google-certified advertising technology providers, Authorized Buyers, Open Bidding partners, or Google demand sources disclosed through UMP, when eligible, selected, and permitted by the user's choices.</li>
       </ul>
       <p>These providers may process information under their own policies, use subprocessors, or process information in other countries. We do not directly sell personal information for money. Whether a disclosure is legally treated as a "sale" or "sharing" depends on the enabled provider, applicable law, and the user's privacy choices.</p>
@@ -223,7 +225,7 @@
     <section>
       <h2>9. Data Retention and Deletion</h2>
       <p>App-local game and settings information normally remains on your device until it is changed, reset by an available in-game control, cleared through Android settings, or removed when the app is uninstalled. Android backup, device-management, or platform behavior may affect information stored outside the app's local storage.</p>
-      <p>The game has no player account, so it has no in-app account-deletion flow. Unity, Google, and advertising providers retain information according to their applicable policies and service requirements. Requests involving Unity Diagnostics data associated with an installation-specific identifier are handled through Unity's Dashboard or Support process. Unity states that its IAP 5.4 service has no native self-service access or deletion feature; requests involving Unity IAP data are handled manually through the process described in Unity's IAP privacy documentation.</p>
+      <p>The game has no player account, so it has no in-app account-deletion flow. Apple, Unity, Google, and advertising providers retain information according to their applicable policies and service requirements. Requests involving Unity Diagnostics data associated with an installation-specific identifier are handled through Unity's Dashboard or Support process. Unity states that its IAP 5.4 service has no native self-service access or deletion feature; requests involving Unity IAP data are handled manually through the process described in Unity's IAP privacy documentation.</p>
       <p>For a privacy inquiry or request relating to developer-controlled information, contact balean.danmihai.dev@gmail.com. Please do not send payment-card details or raw store receipts unless specifically required through a secure support process. Requests concerning provider-controlled information may also need to be directed to Unity, Google, or the relevant advertising provider.</p>
     </section>
 
@@ -255,6 +257,7 @@
         <li><a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unity Game Player and App User Privacy Policy</a> — Unity Developer Data Diagnostics, Unity Analytics, Unity LevelPlay, Unity Ads, and Unity IAP.</li>
         <li><a href="https://docs.unity.com/en-us/iap/privacy-and-consent">Unity IAP Privacy and Consent</a> — Unity IAP 5.4 data handling and request information.</li>
         <li><a href="https://policies.google.com/privacy?hl=en">Google Privacy Policy</a> — Google Play, UMP, and Google Mobile Ads/AdMob.</li>
+        <li><a href="https://www.apple.com/legal/privacy/data/en/app-store/">Apple App Store &amp; Privacy</a> and <a href="https://www.apple.com/legal/privacy/en-ww/">Apple Privacy Policy</a> — App Store purchase processing and StoreKit transaction information.</li>
         <li><a href="https://developers.google.com/admob/unity/privacy">Google UMP for Unity</a> — advertising privacy-message behavior.</li>
         <li><a href="https://docs.unity.com/en-us/grow/levelplay/platform/legal-resources">Unity LevelPlay Legal Resources</a> — LevelPlay privacy and regional compliance materials.</li>
       </ul>
@@ -272,6 +275,7 @@
         <strong>Developer:</strong> Dan-Mihai Balean<br>
         <strong>App:</strong> One Lane Left<br>
         <strong>Android package:</strong> com.baleandanmihai.onelaneleft<br>
+        <strong>iOS bundle identifier:</strong> com.baleandanmihai.onelaneleft.ios<br>
         <strong>Privacy contact:</strong> balean.danmihai.dev@gmail.com
       </div>
     </section>
@@ -282,3 +286,4 @@
   </footer>
 </body>
 </html>
+
